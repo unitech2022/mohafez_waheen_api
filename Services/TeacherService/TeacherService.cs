@@ -61,6 +61,13 @@ namespace mohafezApi.Services.TeacherService
             return teachers;
         }
 
+        public async Task<dynamic> GetTeachersByGender(string Gender)
+        {
+               var teachers = await _context.Teachers!.Where(t => t.Gender == Gender).ToListAsync();
+
+            return teachers;
+        }
+
         public Task<dynamic> GitById(int typeId)
         {
             throw new NotImplementedException();

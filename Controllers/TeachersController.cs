@@ -47,6 +47,14 @@ namespace mohafezApi.Controllers
         }
 
 
+        [HttpGet]
+        [Route("get-teachers-by-gender")]
+        public async Task<ActionResult> GetTeachersByGender([FromQuery] string gender)
+        {
+
+            return Ok(await _repository.GetTeachersByGender(gender));
+        }
+
 
         [HttpPost]
         [Route("delete-teacher")]

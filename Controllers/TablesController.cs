@@ -11,6 +11,14 @@ using Microsoft.Extensions.Logging;
 
 namespace mohafezApi.Controllers
 {
+
+// dotnet ef migrations add InitialCreate
+ // update database 
+// dotnet ef database update
+// create
+// dotnet new webapi -n name 
+
+
     [Route("table")]
     public class TablesController : ControllerBase
     {

@@ -61,12 +61,15 @@ namespace mohafezApi.Services.UserService
 
         public async Task<object> LoginUser(UserForLogin userForLogin)
         {
-            var loginUser = await userManager.FindByNameAsync(userForLogin.UserName);
+            var loginUser = await userManager.FindByNameAsync(userForLogin.Email);
           
+
            
             if (loginUser != null)
             {
-           loginUser.DeviceToken = userForLogin.DeviceToken;
+                if(userForLogin.Password ==loginUser.Code){
+                          
+         loginUser.DeviceToken = userForLogin.DeviceToken;
             await _context.SaveChangesAsync();
                 var Token = await GenerateTokenAsync(loginUser);
                 return new
@@ -78,6 +81,14 @@ namespace mohafezApi.Services.UserService
                     message = "تم التسجيل بنجاح"
 
                 };
+                }else{
+                     return new
+            {
+                status = false,
+                message ="البيانات خاطئة"
+            };
+                }
+           
             }
             return new
             {
@@ -145,7 +156,7 @@ namespace mohafezApi.Services.UserService
             User? user = await _context.Users!.Where(x => x.UserName == userForValidate.UserName).FirstOrDefaultAsync();
             if (user != null)
             {
-                error = "رقم الهاتف مسجل من قبل";
+                error = "الحساب   مسجل من قبل";
                 return error;
             }
 

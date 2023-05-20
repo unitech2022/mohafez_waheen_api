@@ -9,5 +9,6 @@ namespace mohafezApi.Services.TeacherService
     public interface ITeacherService : BaseInterface
     {
          Task<dynamic> GetTeachersByCountry(string country);
+          Task<dynamic> GetTeachersByGender(string Gender);
     }
 }

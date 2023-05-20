@@ -10,8 +10,11 @@ namespace mohafezApi.Dtos
         public string? FullName { get; set; }
         public string? UserName { get; set; }
         public string? Country { get; set; }
-        public string? Classroom { get; set; }
 
+         public string? Email { get; set; }
+
+           public string? Code { get; set; }
+      
         public string? Password { get; set; }
         public string? DeviceToken { get; set; }
         public string? Gender { get; set; }

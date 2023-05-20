@@ -9,16 +9,12 @@ namespace mohafezApi.Models
     {
         public int Id { get; set; }
 
-
-
         public string? UserId { get; set; }
         public int TeacherId { get; set; }
-
 
         public int Status { get; set; }
 
         public string? Hours { get; set; }
-
 
         public string? Link { get; set; }
 
@@ -33,7 +29,7 @@ namespace mohafezApi.Models
         {
             CreatedAt = DateTime.UtcNow.AddHours(3);
 
-            DateToday = DateTime.UtcNow.AddHours(20);
+          
             Status = 0; // 0 ====> active ; 1 ======> unActive
 
 

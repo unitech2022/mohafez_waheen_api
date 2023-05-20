@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/gatekee/projects/projectsApi/mohafezApi/mohafezApi.csproj": {}
+    "F:\\2023\\apiProjects\\mohafez_waheen_api\\mohafezApi.csproj": {}
   },
   "projects": {
-    "/Users/gatekee/projects/projectsApi/mohafezApi/mohafezApi.csproj": {
+    "F:\\2023\\apiProjects\\mohafez_waheen_api\\mohafezApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/gatekee/projects/projectsApi/mohafezApi/mohafezApi.csproj",
+        "projectUniqueName": "F:\\2023\\apiProjects\\mohafez_waheen_api\\mohafezApi.csproj",
         "projectName": "mohafezApi",
-        "projectPath": "/Users/gatekee/projects/projectsApi/mohafezApi/mohafezApi.csproj",
-        "packagesPath": "/Users/gatekee/.nuget/packages/",
-        "outputPath": "/Users/gatekee/projects/projectsApi/mohafezApi/obj/",
+        "projectPath": "F:\\2023\\apiProjects\\mohafez_waheen_api\\mohafezApi.csproj",
+        "packagesPath": "C:\\Users\\obama\\.nuget\\packages\\",
+        "outputPath": "F:\\2023\\apiProjects\\mohafez_waheen_api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/gatekee/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\obama\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -120,7 +120,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.401/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     }
