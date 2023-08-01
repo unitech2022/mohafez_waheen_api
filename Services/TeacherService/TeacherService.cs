@@ -56,14 +56,14 @@ namespace mohafezApi.Services.TeacherService
 
         public async Task<dynamic> GetTeachersByCountry(string country)
         {
-            var teachers = await _context.Teachers!.Where(t => t.Country == country).ToListAsync();
+            var teachers = await _context.Users!.Where(t =>t.Role=="teacher"&& t.Country == country).ToListAsync();
 
             return teachers;
         }
 
         public async Task<dynamic> GetTeachersByGender(string Gender)
         {
-               var teachers = await _context.Teachers!.Where(t => t.Gender == Gender).ToListAsync();
+               var teachers = await _context.Users!.Where(t =>t.Role=="teacher"&& t.Gender == Gender).ToListAsync();
 
             return teachers;
         }

@@ -8,6 +8,9 @@ namespace mohafezApi.Services.TablesService
 {
     public interface ITablesService : BaseInterface
     {
-         Task<dynamic> GetTablesByTeacherId(int teacherId);
+         Task<dynamic> GetTablesByTeacherId(string teacherId);
+
+         Task<dynamic> GetTablesByTeacherIdUser(string teacherId);
+         Task<dynamic> ChangeStatusTable(int tableId,int status);
     }
 }

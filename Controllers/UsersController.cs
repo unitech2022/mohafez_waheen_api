@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using mohafezApi.Services.UserService;
 
 using mohafezApi.Dtos;
+using mohafezApi.ViewModels;
 
 namespace mohafezApi.Controllers
 {
@@ -58,12 +59,12 @@ namespace mohafezApi.Controllers
         }
 
         // [Authorize(Roles ="user")]
-        // [HttpPost("update-user")]
-        // public async Task<ActionResult> UpdateUser([FromForm] UserForUpdate userForUpdate)
-        // {
-        // 	var result = await _service!.UpdateUser(userForUpdate);
-        // 	return Ok(result);
-        // }
+        [HttpPost("update-user")]
+        public async Task<ActionResult> UpdateUser([FromForm] UserForUpdate userForUpdate)
+        {
+        	var result = await _service!.UpdateUser(userForUpdate);
+        	return Ok(result);
+        }
 
         // [Authorize(Roles = "user")]
         [HttpGet("get-user")]

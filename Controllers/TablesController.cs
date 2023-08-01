@@ -12,11 +12,11 @@ using Microsoft.Extensions.Logging;
 namespace mohafezApi.Controllers
 {
 
-// dotnet ef migrations add InitialCreate
- // update database 
-// dotnet ef database update
-// create
-// dotnet new webapi -n name 
+    // dotnet ef migrations add InitialCreate
+    // update database 
+    // dotnet ef database update
+    // create
+    // dotnet new webapi -n name 
 
 
     [Route("table")]
@@ -48,10 +48,17 @@ namespace mohafezApi.Controllers
 
         [HttpGet]
         [Route("get-tables")]
-        public async Task<ActionResult> GetTable([FromQuery] int teacherId)
+        public async Task<ActionResult> GetTableAdmin([FromQuery] string teacherId)
         {
 
             return Ok(await _repository.GetTablesByTeacherId(teacherId));
+        }
+        [HttpGet]
+        [Route("get-tables-user")]
+        public async Task<ActionResult> GetTableUser([FromQuery] string teacherId)
+        {
+
+            return Ok(await _repository.GetTablesByTeacherIdUser(teacherId));
         }
 
 
@@ -69,6 +76,18 @@ namespace mohafezApi.Controllers
             }
 
             return Ok(table);
+        }
+
+
+
+        [HttpPost]
+        [Route("change-status-table")]
+        public async Task<ActionResult> ChangeStatusTable([FromForm] int tableId, [FromForm] int status)
+        {
+
+
+
+            return Ok(await _repository.ChangeStatusTable(tableId, status));
         }
 
     }

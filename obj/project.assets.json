@@ -2733,11 +2733,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\2023\\apiProjects\\mohafez_waheen_api\\mohafezApi.csproj",
+      "projectUniqueName": "f:\\2023\\apiProjects\\mohafez_waheen_api\\mohafezApi.csproj",
       "projectName": "mohafezApi",
-      "projectPath": "F:\\2023\\apiProjects\\mohafez_waheen_api\\mohafezApi.csproj",
+      "projectPath": "f:\\2023\\apiProjects\\mohafez_waheen_api\\mohafezApi.csproj",
       "packagesPath": "C:\\Users\\obama\\.nuget\\packages\\",
-      "outputPath": "F:\\2023\\apiProjects\\mohafez_waheen_api\\obj\\",
+      "outputPath": "f:\\2023\\apiProjects\\mohafez_waheen_api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\obama\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -2846,7 +2846,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.412\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -33,6 +33,15 @@ namespace mohafezApi.Services.TablesService
             return type;
         }
 
+        public async Task<dynamic> ChangeStatusTable(int tableId,int status)
+        {
+            Table? table = await _context.Tables!.FirstOrDefaultAsync(x => x.Id == tableId);
+            table!.Status=status;
+             _context.SaveChanges();
+             return table;
+            
+        }
+
         public async Task<dynamic> DeleteAsync(int typeId)
         {
             Teacher? teacher = await _context.Teachers!.FirstOrDefaultAsync(x => x.Id == typeId);
@@ -54,11 +63,36 @@ namespace mohafezApi.Services.TablesService
             return teachers;
         }
 
-        public async Task<dynamic> GetTablesByTeacherId(int teacherId)
-        {
-            var teachers = await _context.Tables!.Where(t => t.TeacherId == teacherId).ToListAsync();
+        public async Task<dynamic> GetTablesByTeacherId(string teacherId)
+        { 
+           
+            List<DateTime> categories=new List<DateTime>();
 
-            return teachers;
+            var teachers = await _context.Tables!.Where(t => t.UserId == teacherId).ToListAsync();
+             categories = teachers.Select(i => i.DateToday.Date).Distinct().ToList();
+
+            return new{
+                categories=categories,
+                teachers=teachers
+            };
+        }
+
+        public async Task<dynamic> GetTablesByTeacherIdUser(string teacherId)
+        {
+                List<Table> tables=new List<Table>();
+
+            var allTables = await _context.Tables!.Where(t => t.UserId == teacherId).ToListAsync();
+
+            foreach (var item in allTables)
+            {
+                int result = DateTime.Compare(item.DateToday, DateTime.Now);
+                if(result >= 0){
+                    tables.Add(item);
+                }
+            }
+           
+
+            return tables ;
         }
 
         public Task<dynamic> GitById(int typeId)

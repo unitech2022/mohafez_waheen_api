@@ -9,10 +9,11 @@ using AutoMapper;
 using mohafezApi.Data;
 using mohafezApi.Models;
 using mohafezApi.Dtos;
-using mohafezApi.ViewModels;
+using mohafezApi.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using mohafezApi.ViewModels;
 
 namespace mohafezApi.Services.UserService
 {
@@ -48,10 +49,11 @@ namespace mohafezApi.Services.UserService
 
 
 
-        public async Task<User> GetUser(string UserId)
+        public async Task<UserDetailResponse> GetUser(string UserId)
         {
             User? user = await _context.Users!.FindAsync(UserId);
-            return user!;
+              UserDetailResponse userDetailResponse =_mapper.Map<UserDetailResponse>(user);
+            return userDetailResponse!;
         }
 
         public Task<object> IsUserRegistered(string UserName)
@@ -175,5 +177,37 @@ namespace mohafezApi.Services.UserService
             await _context.SaveChangesAsync();
             return true;
         }
+
+
+          public async Task<object> UpdateUser(UserForUpdate userForUpdate) {
+            User? user = await _context.Users!.Where(x => x.Id == userForUpdate.UserId).FirstOrDefaultAsync();
+            if (user == null) return false;
+            if (userForUpdate.FullName !=null) {
+                user.FullName = userForUpdate.FullName;
+            }
+            if (userForUpdate.Gender != null)
+            {
+                user.Gender = userForUpdate.Gender;
+            }
+            if (userForUpdate.Country != null)
+            {
+                user.Country = userForUpdate.Country;
+            }
+
+            if (userForUpdate.ProfileImage != null)
+            {
+                user.ProfileImage = userForUpdate.ProfileImage;
+            }
+            // if (userForUpdate.Birth != null)
+            // {
+            //     user.Birth = userForUpdate.Birth;
+            // }
+
+            await _context.SaveChangesAsync();
+            UserDetailResponse userDetailResponse =_mapper.Map<UserDetailResponse>(user);
+            return userDetailResponse;
+        }
+
+
     }
 }

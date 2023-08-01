@@ -159,7 +159,7 @@ namespace mohafezApi.Migrations
                     b.Property<DateTime>("DateToday")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("Hours")
+                    b.Property<string>("FromHours")
                         .HasColumnType("longtext");
 
                     b.Property<string>("Link")
@@ -171,8 +171,8 @@ namespace mohafezApi.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int>("TeacherId")
-                        .HasColumnType("int");
+                    b.Property<string>("ToHours")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Today")
                         .HasColumnType("longtext");
